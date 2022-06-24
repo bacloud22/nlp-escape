@@ -1,0 +1,26 @@
+{
+  "name": "nlp-escape",
+  "version": "1.0.0",
+  "description": "A generic pre escape and post recover text tags for NLP/ML pipelines - Use at your own risk !",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bacloud22/nlp-escape.git"
+  },
+  "keywords": [
+    "nlp",
+    "pipeline",
+    "escape",
+    "tags",
+    "javascript"
+  ],
+  "author": "bacloud14[at]gmail(dot)com (https://github.com/bacloud22)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bacloud22/nlp-escape/issues"
+  },
+  "homepage": "https://github.com/bacloud22/nlp-escape#readme"
+}
