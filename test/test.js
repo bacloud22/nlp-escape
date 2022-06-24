@@ -1,4 +1,4 @@
-const NLPEscape = require("./index").NLPEscape;
+const NLPEscape = require("../index").NLPEscape;
 
 let text =
   "this is a <b>big</b> data text. But what is big data? <a>read more</a>." +
@@ -18,19 +18,10 @@ console.log(text);
 // Real world example
 // This is one of your pipeline stages (external library)
 const decancer = require("decancer");
+// This is one of your pipeline stages (in-house)
 // List of things to censor
-// Credit: http://www.richardsramblings.com/regex/credit-card-numbers/
-// Credit: https://codepen.io/gpeu/pen/eEdvmO
+// Credit: http://www.richardsramblings.com/regex/credit-card-numbers/ && https://codepen.io/gpeu/pen/eEdvmO
 const reb = {
-  electron: /\b(4026|417500|4405|4508|4844|4913|4917)[ -./\\]?\d{4}[ -./\\]?\d{4}\d{3,4}\b/g,
-  maestro:
-      /\b(?:5[0678]\d\d|6304|6390|67\d\d)[ -./\\]?\d{4}[ -./\\]?\d{4}[ -./\\]?(?:\d{4})?[ -./\\]?(?:\d{1,3})?\b/g,
-  dankort: /\b(5019)[ -./\\]?\d{4}[ -./\\]?\d{4}[ -./\\]?\d{4}\b/g,
-  instaPayment: /\b(637|638|639)[ -./\\]?\d{4}[ -./\\]?\d{4}[ -./\\]?\d{4}[ -./\\]?\d{1}\b/g,
-  visa: /\b4\d{3}[ -./\\]?\d{4}[ -./\\]?\d{4}[ -./\\]?\d{1,4}\b/g,
-  mastercard: /\b5[1-5]\d{2}[ -./\\]?\d{4}[ -./\\]?\d{4}[ -./\\]?\d{4}\b/g,
-  amex: /\b3[47]\d{2}[ -./\\]?\d{4}[ -./\\]?\d{4}[ -./\\]?\d{3}\b/g,
-  diners: /\b3(?:0[0-5]|[68]\d)\d{1}[ -./\\]?\d{4}[ -./\\]?\d{4}[ -./\\]?\d{2}\b/g,
   discover: /\b6(?:011|5\d{2}|22[19]|4[56789]\d{1})[ -./\\]?\d{4}[ -./\\]?\d{4}[ -./\\]?\d{4}\b/g,
   jcb: /\b(?:2131|1800|35\d[28-89])[ -./\\]?\d{4}[ -./\\]?\d{4}[ -./\\]?\d{4}\b/g,
   ssn: /\b\d{3}[ -./\\]?\d{2}[ -./\\]?\d{4}\b/g,
@@ -38,7 +29,6 @@ const reb = {
 const rew = {
   phone: /\b(?:(?:\(\d{3}\)?)|(?:\d{3}))[ -./\\]?\d{3}[ -./\\]?\d{4}\b/g,
 }
-// This is one of your pipeline stages (in-house)
 function cleanSensitive(blob, maxLen) {
   if (maxLen === 0) return "";
   if (maxLen < 9) return blob;
