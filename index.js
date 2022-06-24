@@ -26,7 +26,7 @@ function NLPEscape(tags) {
             let position = text.indexOf(tag);
             for (; position > -1; position = text.indexOf(tag)) {
                 let re = new RegExp(tag, "g");
-                text = text.replace(re, mapping[tag]);
+                text = text.replace(re, this.mapping[tag]);
             }
         }
         return text;
@@ -43,7 +43,7 @@ function NLPEscape(tags) {
             let position = text.indexOf(code);
             for (; position > -1; position = text.indexOf(code)) {
                 let re = new RegExp(code, "g");
-                text = text.replace(re, reverseMapping[code]);
+                text = text.replace(re, this.reverseMapping[code]);
             }
         }
         return text;
