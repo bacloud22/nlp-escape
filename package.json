@@ -4,7 +4,7 @@
   "description": "A generic pre escape and post recover text tags for NLP/ML pipelines - Use at your own risk !",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/bacloud22/nlp-escape#readme",
   "devDependencies": {
+    "ava": "^4.3.0",
     "decancer": "^1.2.3"
   }
 }
