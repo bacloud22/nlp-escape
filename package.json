@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/bacloud22/nlp-escape/issues"
   },
-  "homepage": "https://github.com/bacloud22/nlp-escape#readme"
+  "homepage": "https://github.com/bacloud22/nlp-escape#readme",
+  "devDependencies": {
+    "decancer": "^1.2.3"
+  }
 }

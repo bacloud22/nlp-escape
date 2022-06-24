@@ -21,15 +21,16 @@ function NLPEscape(tags) {
      * @return {String}
      */
     this.escape = (text) => {
-        const tags = this.tags_ // Save the initial object state (tags)
+        let output = text
+        const tags = this.tags_.slice() // Save the initial object state (tags)
         for (let tag; (tag = tags.shift()); ) {
-            let position = text.indexOf(tag);
-            for (; position > -1; position = text.indexOf(tag)) {
+            let position = output.indexOf(tag);
+            for (; position > -1; position = output.indexOf(tag)) {
                 let re = new RegExp(tag, "g");
-                text = text.replace(re, this.mapping[tag]);
+                output = output.replace(re, this.mapping[tag]);
             }
         }
-        return text;
+        return output;
     },
 
     /**
@@ -38,15 +39,16 @@ function NLPEscape(tags) {
      * @return {String}
      */
     this.unescape = (text) => {
-        const codes = this.codes_ // Save the initial object state (codes)
+        let output = text
+        const codes = this.codes_.slice() // Save the initial object state (codes)
         for (let code; (code = codes.shift()); ) {
-            let position = text.indexOf(code);
-            for (; position > -1; position = text.indexOf(code)) {
+            let position = output.indexOf(code);
+            for (; position > -1; position = output.indexOf(code)) {
                 let re = new RegExp(code, "g");
-                text = text.replace(re, this.reverseMapping[code]);
+                output = output.replace(re, this.reverseMapping[code]);
             }
         }
-        return text;
+        return output;
     };
 }
 /**
