@@ -37,3 +37,20 @@ As you have understood, this assumes **there are no `\0` already in the initial 
 - Because of the first consideration, this is subject to some kind of zip bombing attack ! a text like `<a><b><c>...<i>...<n>` would grow considerably.
 - The remedy to this is the construction of a limited tags dictionary (this is what we do here ! You specify tags to be escaped manually).
 
+## Example
+```js
+let text =
+  "this is a <b>big</b> data text. But what is big data? <a>read more</a>." +
+  "Then <i>vＥⓡ𝔂 𝔽𝕌Ňℕｙ</i> ţ乇𝕏𝓣 and finally ssn:987477475 ssn:987 47 7475 wow this is working";
+const escaper = new NLPEscape(["<a>", "<b>", "</b>", "</a>", "<i>", "</i>"])
+const escaped = escaper.escape(text)
+// do whatever processing with escaped !
+// const transformed = escaped.toUpperCase().trim()...
+const transformed = escaped.decancer().cleanSensitive()
+let result = escaper.unescape(transformed)
+```
+
+## License
+### author
+A.B. 2022  
+MIT

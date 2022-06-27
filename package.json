@@ -1,6 +1,6 @@
 {
   "name": "nlp-escape",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A generic pre escape and post recover text tags for NLP/ML pipelines - Use at your own risk !",
   "main": "index.js",
   "scripts": {
